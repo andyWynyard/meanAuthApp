@@ -164,7 +164,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".row {\n  margin-bottom: 5px;\n}\n", ""]);
 
 // exports
 
@@ -177,7 +177,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Dashboard</h2>\n<p>Welcome to the Dashboard. Here you will see all services avaliable to you.</p>\n"
+module.exports = "<h2 class=\"page-header\">Dashboard</h2>\n\n\n\n\n<div class=\"row\">\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/id-card.png\" class=\"img-thumbnail\" alt=\"Analytics\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/curriculum.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/certificate.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/folder.png\" class=\"img-thumbnail\" alt=\"Analytics\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/chat.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/contract.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n</div>\n\n<div class=\"row\">\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/chat-1.png\" class=\"img-thumbnail\" alt=\"Analytics\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/businessmen.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/handshake.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/hierarchy-1.png\" class=\"img-thumbnail\" alt=\"Analytics\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/archives.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n  <div class=\"col-md-2\">\n    <img src=\"/assets/png/laptop.png\" class=\"img-thumbnail\" alt=\"\">\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -238,7 +238,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>MEAN Authentication Application</h1>\n  <p class=\"lead\">This application is designed as a template for any application needing login authentication and a profile.</p>\n  <div class=\"\">\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-default\" [routerLink]=\"['/login']\">Login</a>\n  </div>\n</div>\n<div class=\"row text-center\">\n  <h3>List of technologies used:</h3>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\">\n        <h3>MongoDB</h3>\n        <p>The MongoDB is hosted bia mLab separate from the application on Heroku.</p>\n    </div>\n    <div class=\"col-md-3\">\n        <h3>Express Backend</h3>\n        <p>This is a solid Node.js/Express senver using Mongoose to organise models and query the MongoDB</p>\n    </div>\n    <div class=\"col-md-3\">\n        <h3>Angular-CLI</h3>\n        <p>Angular-CLI to generate components, services and more. Local dev server and easy compilation</p>\n    </div>\n    <div class=\"col-md-3\">\n        <h3>JWT Tokens</h3>\n        <p>Full featured authentication using JSON web tokens. Login and staore user data.</p>\n    </div>\n</div>\n"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Template Application</h1>\n  <p class=\"lead\">This application is designed as a template for any application needing login authentication and a profile.</p>\n  <div class=\"\">\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-default\" [routerLink]=\"['/login']\">Login</a>\n  </div>\n</div>\n<div class=\"row text-center\">\n  <h3>List of technologies used:</h3>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-3\">\n        <h3>MongoDB</h3>\n        <p>The MongoDB is hosted bia mLab separate from the application on Heroku.</p>\n    </div>\n    <div class=\"col-md-3\">\n        <h3>Express Backend</h3>\n        <p>This is a solid Node.js/Express senver using Mongoose to organise models and query the MongoDB</p>\n    </div>\n    <div class=\"col-md-3\">\n        <h3>Angular-CLI</h3>\n        <p>Angular-CLI to generate components, services and more. Local dev server and easy compilation</p>\n    </div>\n    <div class=\"col-md-3\">\n        <h3>JWT Tokens</h3>\n        <p>Authentication using JSON web tokens. Login and store user data. This is stored locally.</p>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -711,6 +711,7 @@ var AuthService = (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
+        //http://localhost:3000/users/register
         return this.http.post('users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
